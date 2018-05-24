@@ -7,6 +7,14 @@ import { TlsOptions } from 'tls'
 import * as tt from './telegram-types.d'
 
 
+export interface WizardScene {
+  [x: string]: any
+}
+
+export interface Scene {
+  [x: string]: any
+}
+
 export interface TelegramOptions {
   /**
    * https.Agent instance, allows custom proxy, certificate, keep alive, etc.
@@ -32,7 +40,9 @@ export interface Context {
   me?: string
   message?: tt.IncomingMessage
   preCheckoutQuery?: tt.PreCheckoutQuery
-  shippingQuery?: tt.ShippingQuery
+  shippingQuery?: tt.ShippingQuery,
+  wizard?: WizardScene,
+  scene?: Scene
 }
 
 export interface ContextMessageUpdate extends Context {
