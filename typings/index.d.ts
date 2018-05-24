@@ -1,3 +1,4 @@
+import { Middleware } from './index.d';
 /// <reference types="node" />
 
 import { IncomingMessage, ServerResponse } from 'http'
@@ -717,6 +718,13 @@ export class Composer<C extends ContextMessageUpdate> {
    * @param middlewares Middleware functions
    */
   hears(triggers: HearsTriggers, middleware: Middleware<C>, ...middlewares: Array<Middleware<C>>): Composer<C>
+
+  /**
+   * Action handling
+   * @param action Actions
+   * @param middlwares Middleware functions
+   */
+  action(command: string | string[], middleware: Middleware<C>, ...middlewares: Array<Middleware<C>>): Composer<C>
 
   /**
    * Command handling.
