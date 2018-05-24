@@ -353,6 +353,8 @@ export interface Middleware<C extends ContextMessageUpdate> {
 
 export type HearsTriggers = string[] | string | RegExp | RegExp[] | Function
 
+export type ActionTriggers = string | string[] | RegExp | RegExp[]
+
 export class Telegram {
   /**
    * Use this property to control reply via webhook feature.
@@ -724,7 +726,7 @@ export class Composer<C extends ContextMessageUpdate> {
    * @param action Actions
    * @param middlwares Middleware functions
    */
-  action(command: string | string[], middleware: Middleware<C>, ...middlewares: Array<Middleware<C>>): Composer<C>
+  action(triggers: ActionTriggers, middleware: Middleware<C>, ...middlewares: Array<Middleware<C>>): Composer<C>
 
   /**
    * Command handling.
@@ -837,6 +839,9 @@ export class Telegraf<C extends ContextMessageUpdate> extends Composer<C> {
    * new Telegraf(token, options)
    */
   constructor(token: string, options?: TelegrafOptions)
+
+
+  action(triggers: ActionTriggers, middleware: Middleware<C>, ...midlewares: Array<Middleware<C>>): Telegraf<C>
 
   /**
    * Start poll updates.
