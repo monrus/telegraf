@@ -844,6 +844,7 @@ export class Telegraf<C extends ContextMessageUpdate> extends Composer<C> {
 
   action(triggers: ActionTriggers, middleware: Middleware<C>, ...midlewares: Array<Middleware<C>>): Telegraf<C>
 
+  catch(handler: Middleware<C>): Telegraf<C>
   /**
    * Start poll updates.
    * @param timeout Poll timeout in seconds
