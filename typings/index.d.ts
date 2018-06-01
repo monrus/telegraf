@@ -44,6 +44,7 @@ export interface Context {
   shippingQuery?: tt.ShippingQuery,
   wizard?: WizardScene,
   scene?: Scene
+  match?: RegExpMatchArray
 }
 
 export interface ContextMessageUpdate extends Context {
